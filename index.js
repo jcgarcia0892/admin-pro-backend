@@ -1,5 +1,64 @@
 
 require('dotenv').config();
+const express           = require('express');
+const cors              = require('cors');
+const { dbConnection }  = require('./database/config');
+
+const app       = express();
+
+app.use(cors());
+
+app.use(express.json());
+
+dbConnection();
+
+app.use('/api/usuarios', require('./routes/usuarios'));
+app.use('/api/login', require('./routes/auth'));
+
+// clave del usuario prueba 1 en atlas D5XrLAyXrVKfs9Mh
+
+app.listen(process.env.PORT, () => {
+    console.log('hola estoy en el puerto ' + process.env.PORT)
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*require('dotenv').config();
 
 const express   = require('express');
 const cors = require('cors');
@@ -14,6 +73,9 @@ const app       = express();
 
 app.use(cors());
 
+//Lectura y parseo del body
+app.use( express.json() );
+
 // Base de Datos
 dbConnection();
 
@@ -26,15 +88,12 @@ console.log(process.env);
 
 
 //Rutas
-app.get('/', (req, res) => {
 
-    res.json({
-        ok: true,
-        msg: 'Hola Mundo'
-    });
+app.use('/api/usuarios', require('./routes/usuarios'));
 
-});
+
 
 app.listen( process.env.PORT, () => {
     console.log('Servidor corriendo en puerto ' + process.env.PORT);
 } );
+*/
