@@ -5,12 +5,27 @@ const { generarJWT } = require('../helpers/jwt');
 
 const getUsuarios = async(req, res) => {
 
+    const desde  = Number(req.query.desde) || 0;
 
-    const usuarios = await Usuario.find();
+    
+    //const usuarios = await Usuario.find({}, 'nombre email rol google')
+    //                                .skip(desde)//eto es para la paginación, se salta los valores desde el numero que viene
+    //                                .limit(5);   //en la variable desde, los cuales se ponen en la ruta del postman como parametros
+    
+    //const total = await Usuario.count(); //Sirve para contar los usuarios que tenemos en la vase de datos
+
+    const [usuarios, total]    = await Promise.all([
+        Usuario.find({}, 'nombre email rol google, img')
+                .skip(desde)
+                .limit(5),
+        
+        Usuario.countDocuments()
+    ])
 
     res.json({
         ok: true,
-        usuarios
+        usuarios,
+        total
     });
 
 };
