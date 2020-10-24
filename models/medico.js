@@ -14,12 +14,12 @@ const MedicoSchema = Schema({
         ref: 'Usuario',
         require: true
     },
-    hospital_id: {
+    hospital: {
         type: Schema.Types.ObjectId,
         ref: 'Hospital',
         require: true
     }
-}, { collection: 'Medicos' });
+}, { collection: 'medicos' });
 
 
 MedicoSchema.method('toJSON', function(){
