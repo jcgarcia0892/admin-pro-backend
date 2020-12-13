@@ -1,6 +1,7 @@
 
 require('dotenv').config();
 const express           = require('express');
+const path              = require('path');
 const cors              = require('cors');
 const { dbConnection }  = require('./database/config');
 
@@ -22,6 +23,13 @@ app.use('/api/medicos', require('./routes/medicos'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/todo', require('./routes/busquedas'));
 app.use('/api/uploads', require('./routes/uploads'));
+
+// lo ultimo
+
+app.get('*', (req, res) => {
+    console.log('entre');
+    res.sendFile( path.resolve( __dirname, './public/index.html' ) );
+});
 
 // clave del usuario prueba 1 en atlas D5XrLAyXrVKfs9Mh
 
