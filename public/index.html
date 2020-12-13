@@ -1,41 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-signin-client_id" content="628844495691-70s9mrrm78fseqp3rq8sh544c4rdnqpk.apps.googleusercontent.com">
-    <title>Demo Login</title>
-</head>
-<body>
-   <h3>Google Sign in</h3> 
-   <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <meta charset="utf-8">
+  <title>AdminPro</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-signin-client_id" content="628844495691-70s9mrrm78fseqp3rq8sh544c4rdnqpk.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js"></script>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-   <a href="#" onclick="signOut();">Sign out</a>
+  <!-- Favicon icon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon.png">
 
-   <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <!-- Bootstrap Core CSS -->
+  <link href="./assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="./assets/css/style.css" rel="stylesheet">
+  <!-- You can change the theme colors from here -->
+  <link  id="theme" rel="stylesheet">
 
-   <script>
-       //Abrir sesison
-        function onSignIn(googleUser) {
-            var profile = googleUser.getBasicProfile();
-            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-            console.log('Name: ' + profile.getName());
-            console.log('Image URL: ' + profile.getImageUrl());
-            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  
 
-            var id_token = googleUser.getAuthResponse().id_token;
-            console.log(id_token);
-        }
+  
 
-        //Cerar session
+<link rel="stylesheet" href="styles.9c28f48b6a4221df9923.css"></head>
+<body class="fix-header card-no-border fix-sidebar">
 
-        function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-            console.log('User signed out.');
-            });
-        }
+  
+  <app-root></app-root>
 
-   </script>
-</body>
+   <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="./assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="./assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="./assets/js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="./assets/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="./assets/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="./assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="./assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="./assets/js/custom.js"></script>
+    <!-- ============================================================== -->
+
+
+    <!--Chat JS-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0" ></script>
+
+<script src="runtime.fad65979fa8dbc93c495.js" defer></script><script src="polyfills.a4021de53358bb0fec14.js" defer></script><script src="main.07ba76b503d0b7b29db1.js" defer></script></body>
 </html>
