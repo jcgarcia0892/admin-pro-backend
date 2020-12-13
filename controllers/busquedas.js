@@ -41,9 +41,10 @@ const getTodo   = async (req, res = response) => {
 const getDocumentosColeccion    = async (req, res = response) => {
     
     const busqueda  = req.params.busquedas;
-    const tabla     = req.params.tabla;
+    const tabla     = req.params.tablas;
     const regex     = new RegExp(busqueda, 'i');
     let data = [];
+
 
     try {
 
@@ -69,7 +70,7 @@ const getDocumentosColeccion    = async (req, res = response) => {
             default:
                 return res.status(400).json({
                     ok: false,
-                    msg: 'La tabla tieneque ser de usuarios - médicos u hospotales'
+                    msg: 'La tabla tiene que ser de usuarios - médicos u hospitales'
                 });
                 break;
         }

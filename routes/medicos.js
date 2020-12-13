@@ -7,13 +7,13 @@ const { check }         = require('express-validator');
 const { validarCampos } = require('./../middlewares/validar-campos');
 
 const { validarJWT } = require('../middlewares/validar-jwt');
-const { getMedicos, crearMedico, actualizarMedico, borrarMedico } = require('../controllers/medicos');
+const { getMedicos, crearMedico, actualizarMedico, borrarMedico, getMedico } = require('../controllers/medicos');
 
 const router = Router();
 
 
 //no se ejecuta la funcion get usuarios solo se manda la referencia
-router.get('/', getMedicos );
+router.get('/', validarJWT, getMedicos );
 
 
 
@@ -40,6 +40,8 @@ router.put('/:id',
         );
 
 router.delete('/:id', [validarJWT], borrarMedico );
+
+router.get('/:id', [validarJWT], getMedico );
 
 
 
